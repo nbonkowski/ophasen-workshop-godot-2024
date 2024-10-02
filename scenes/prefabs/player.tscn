@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dp5xlyyl816fv"]
+
+[ext_resource type="Texture2D" uid="uid://ob5ak1u0sx8a" path="res://sprites/PNG/Tanks/tankGreen.png" id="1_r78wl"]
+[ext_resource type="Script" path="res://scripts/player_movement.gd" id="2_lp258"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0c0t3"]
+size = Vector2(70, 73)
+
+[node name="Player" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("2_lp258")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+rotation = -1.5708
+texture = ExtResource("1_r78wl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_0c0t3")

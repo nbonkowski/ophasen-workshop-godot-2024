@@ -1,3 +1,13 @@
-[gd_scene format=3 uid="uid://dyeexi6unj8rj"]
+[gd_scene load_steps=3 format=3 uid="uid://dyeexi6unj8rj"]
+
+[ext_resource type="PackedScene" uid="uid://dp5xlyyl816fv" path="res://scenes/prefabs/player.tscn" id="1_5h4wv"]
+[ext_resource type="Texture2D" uid="uid://ba833pnb2am0a" path="res://icon.svg" id="2_iq3ah"]
 
 [node name="Game" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_5h4wv")]
+position = Vector2(353, 193)
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(449, 197)
+texture = ExtResource("2_iq3ah")
