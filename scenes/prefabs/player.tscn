@@ -18,3 +18,6 @@ texture = ExtResource("1_r78wl")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_0c0t3")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position_smoothing_enabled = true
