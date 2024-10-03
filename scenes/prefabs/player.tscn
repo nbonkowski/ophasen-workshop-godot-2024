@@ -1,23 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://dp5xlyyl816fv"]
+[gd_scene load_steps=5 format=3 uid="uid://dp5xlyyl816fv"]
 
-[ext_resource type="Texture2D" uid="uid://ob5ak1u0sx8a" path="res://sprites/PNG/Tanks/tankGreen.png" id="1_r78wl"]
 [ext_resource type="Script" path="res://scripts/player_movement.gd" id="2_lp258"]
+[ext_resource type="Texture2D" uid="uid://bisd67ojokl4o" path="res://sprites/PNG/Tanks/tankGreen_outline.png" id="2_tkg60"]
+[ext_resource type="Texture2D" uid="uid://b4h5dm1gxontt" path="res://sprites/PNG/Tanks/barrelGreen_outline.png" id="3_1yots"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0c0t3"]
-size = Vector2(70, 73)
+size = Vector2(79, 76)
 
 [node name="Player" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 script = ExtResource("2_lp258")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-rotation = -1.5708
-texture = ExtResource("1_r78wl")
+[node name="Tank" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("2_tkg60")
+
+[node name="Barrel" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(0, -25)
+texture = ExtResource("3_1yots")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(0, 0.5)
+position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_0c0t3")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position_smoothing_enabled = true
+
+[node name="Projectile_Marker" type="Marker2D" parent="CharacterBody2D"]
+position = Vector2(0, -75)
