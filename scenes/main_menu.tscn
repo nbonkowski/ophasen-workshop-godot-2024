@@ -1,4 +1,9 @@
-[gd_scene format=3 uid="uid://poqu72y48pky"]
+[gd_scene load_steps=5 format=3 uid="uid://poqu72y48pky"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_wxjha"]
+[ext_resource type="Texture2D" uid="uid://hop38wcye6et" path="res://sprites/PNG/Buttons/button_rectangle_depth.png" id="1_yjflu"]
+[ext_resource type="Texture2D" uid="uid://b7hh3na2qradi" path="res://sprites/PNG/Buttons/button_rectangle.png" id="2_wpix0"]
+[ext_resource type="FontFile" uid="uid://bq5c0j1txscwj" path="res://sprites/Kenney Future.ttf" id="3_h2v8x"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -7,3 +12,72 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_wxjha")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "[center]Tanki Tank[/center]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="StartButton" type="TextureButton" parent="CenterContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("1_yjflu")
+texture_pressed = ExtResource("2_wpix0")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+theme_override_colors/default_color = Color(0.340339, 0.340339, 0.340339, 1)
+theme_override_fonts/normal_font = ExtResource("3_h2v8x")
+text = "Play"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="QuitButton" type="TextureButton" parent="CenterContainer/VBoxContainer/CenterContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("1_yjflu")
+texture_pressed = ExtResource("2_wpix0")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/VBoxContainer/CenterContainer2"]
+layout_mode = 2
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+theme_override_colors/default_color = Color(0.340339, 0.340339, 0.340339, 1)
+theme_override_fonts/normal_font = ExtResource("3_h2v8x")
+text = "Quit"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer2/QuitButton" to="." method="_on_quit_button_pressed"]

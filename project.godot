@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 HealthManager="*res://scripts/health_manager.gd"
 
+[display]
+
+mouse_cursor/custom_image="res://sprites/PNG/cursor_g.png"
+mouse_cursor/custom_image_hotspot=Vector2(0.05, 0)
+
 [input]
 
 turn_left={
