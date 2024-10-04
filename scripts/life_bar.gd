@@ -16,10 +16,6 @@ func _ready() -> void:
 		$HBoxContainer.add_child(hearts[i])
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 func update_health(health: int, player: bool):
 	if self.player == player:
 		for i in range(health % max_health, max_health):
