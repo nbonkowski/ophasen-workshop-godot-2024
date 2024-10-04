@@ -18,8 +18,7 @@ func explode()-> void:
 
 
 func _on_timer_timeout() -> void:
-	explode() # Replace with function body.
+	explode() 
 
-
-func _on_body_entered(body: Node2D) -> void:
+func _on_area_entered(area: Area2D) -> void:
 	explode()

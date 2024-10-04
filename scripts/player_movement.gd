@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var speed = 180
 @export var rotation_speed = 1
+@export var is_player_two = false
 
 @onready var PROJECTILE = preload("res://scenes/prefabs/tank_projectile.tscn")
 
@@ -20,3 +21,9 @@ func _physics_process(delta):
 	get_input()
 	rotation += rotation_direction * rotation_speed * delta
 	move_and_slide()
+
+
+#is called when hit by a projectile
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group("TankProjectile"):
+		HealthManager.decreas_health(1,is_player_two)

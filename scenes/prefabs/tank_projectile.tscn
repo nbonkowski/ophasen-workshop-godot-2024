@@ -5,7 +5,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qe1jf"]
 
-[node name="TankProjectile" type="Area2D"]
+[node name="TankProjectile" type="Area2D" groups=["TankProjectile"]]
 script = ExtResource("1_00fdg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -18,5 +18,6 @@ shape = SubResource("CapsuleShape2D_qe1jf")
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

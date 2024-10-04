@@ -5,26 +5,36 @@
 [ext_resource type="Texture2D" uid="uid://b4h5dm1gxontt" path="res://sprites/PNG/Tanks/barrelGreen_outline.png" id="3_1yots"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0c0t3"]
-size = Vector2(79, 76)
+size = Vector2(83, 78)
 
-[node name="Player" type="Node2D"]
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("2_lp258")
 
-[node name="Tank" type="Sprite2D" parent="CharacterBody2D"]
+[node name="Tank" type="Sprite2D" parent="."]
 texture = ExtResource("2_tkg60")
 
-[node name="Barrel" type="Sprite2D" parent="CharacterBody2D"]
+[node name="Barrel" type="Sprite2D" parent="."]
 position = Vector2(0, -25)
 texture = ExtResource("3_1yots")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_0c0t3")
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+enabled = false
 position_smoothing_enabled = true
 
-[node name="Projectile_Marker" type="Marker2D" parent="CharacterBody2D"]
+[node name="Projectile_Marker" type="Marker2D" parent="."]
 position = Vector2(0, -60)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="HitBox" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_0c0t3")
+
+[node name="Player" type="Node2D" parent="."]
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
