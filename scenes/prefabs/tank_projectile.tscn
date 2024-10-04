@@ -4,18 +4,19 @@
 [ext_resource type="Texture2D" uid="uid://cl72evefwjgx6" path="res://sprites/PNG/Bullets/bulletGreenSilver_outline.png" id="1_ihmqq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qe1jf"]
-height = 34.0
 
-[node name="TankProjectile" type="CharacterBody2D"]
+[node name="TankProjectile" type="Area2D"]
 script = ExtResource("1_00fdg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_ihmqq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
 shape = SubResource("CapsuleShape2D_qe1jf")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

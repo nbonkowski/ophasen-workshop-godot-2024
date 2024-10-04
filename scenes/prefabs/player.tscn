@@ -27,4 +27,4 @@ shape = SubResource("RectangleShape2D_0c0t3")
 position_smoothing_enabled = true
 
 [node name="Projectile_Marker" type="Marker2D" parent="CharacterBody2D"]
-position = Vector2(0, -75)
+position = Vector2(0, -60)
