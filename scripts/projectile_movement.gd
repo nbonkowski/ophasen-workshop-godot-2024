@@ -13,7 +13,9 @@ func _process(delta: float) -> void:
 	#move_and_slide()
 		
 func explode()-> void:
-	queue_free()
+	projectile_speed = 0
+	$Sprite2D.play("explosion")
+	$Sprite2D.connect("animation_looped",queue_free)
 
 
 func _on_timer_timeout() -> void:
