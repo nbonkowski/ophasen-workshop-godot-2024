@@ -9,16 +9,8 @@ var player_two_health
 signal update_health(health, player)
 
 ## Called when the node enters the scene tree for the first time.
-#func _ready() -> void:
-	#player_one_health = max_player_health
-	#player_two_health = max_player_health
-
-func set_health(health:int,player:bool):
-	if player == false :
-		player_one_health = health
-	elif player == true:
-		player_two_health = health
-	update_health.emit(player_two_health if player else player_one_health, player)
+func _ready() -> void:
+	reset()
 
 func decreas_health(damage: int, player: bool):
 	if player == false :
@@ -29,3 +21,6 @@ func decreas_health(damage: int, player: bool):
 		get_tree().change_scene_to_packed(menu)
 	update_health.emit(player_two_health if player else player_one_health, player)
 		
+func reset():
+	player_one_health = max_player_health
+	player_two_health = max_player_health

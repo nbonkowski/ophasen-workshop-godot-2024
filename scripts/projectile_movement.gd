@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var projectile_speed = 400
+@export var projectile_speed = 800
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,11 +14,13 @@ func _process(delta: float) -> void:
 		
 func explode()-> void:
 	queue_free()
-	queue_free()
 
 
 func _on_timer_timeout() -> void:
 	explode() 
+
+func _on_body_entered(area: Area2D) -> void:
+	explode()
 
 func _on_area_entered(area: Area2D) -> void:
 	explode()

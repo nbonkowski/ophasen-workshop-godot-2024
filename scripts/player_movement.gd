@@ -21,9 +21,10 @@ func get_input():
 
 func _physics_process(delta):
 	get_input()
+	fire()
 	rotation += rotation_direction * rotation_speed * delta
 	move_and_slide()
-	fire()
+	
 	
 func fire():
 	if Input.is_action_just_pressed(fire_tank):
@@ -31,6 +32,7 @@ func fire():
 		projectile.rotation = rotation
 		get_node("/root/Game/").add_child(projectile)
 		projectile.global_position = $Projectile_Marker.global_position
+		rotation_direction = 0
 
 #is called when hit by a projectile
 func _on_area_2d_area_entered(area: Area2D) -> void:
