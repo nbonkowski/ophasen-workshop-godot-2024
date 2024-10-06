@@ -36,6 +36,7 @@ func fire():
 		get_node("/root/Game/").add_child(projectile)
 		projectile.global_position = $Projectile_Marker.global_position
 		rotation_direction = 0
+		#velocity += transform.y * 500
 		$FireDelay.start()
 
 #is called when hit by a projectile
