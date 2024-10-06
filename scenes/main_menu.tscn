@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://poqu72y48pky"]
+[gd_scene load_steps=11 format=3 uid="uid://poqu72y48pky"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_wxjha"]
 [ext_resource type="Texture2D" uid="uid://hop38wcye6et" path="res://sprites/PNG/Buttons/button_rectangle_depth.png" id="1_yjflu"]
+[ext_resource type="Texture2D" uid="uid://dr8hs5jc5hytn" path="res://sprites/PNG/Environment/dirt.png" id="2_47cde"]
 [ext_resource type="Texture2D" uid="uid://b7hh3na2qradi" path="res://sprites/PNG/Buttons/button_rectangle.png" id="2_wpix0"]
 [ext_resource type="FontFile" uid="uid://bq5c0j1txscwj" path="res://sprites/Kenney Future.ttf" id="3_h2v8x"]
+[ext_resource type="Texture2D" uid="uid://b4h5dm1gxontt" path="res://sprites/PNG/Tanks/barrelGreen_outline.png" id="4_yl6r8"]
+[ext_resource type="Texture2D" uid="uid://bisd67ojokl4o" path="res://sprites/PNG/Tanks/tankGreen_outline.png" id="5_30hwu"]
+[ext_resource type="Texture2D" uid="uid://ciocqfu3gi1do" path="res://sprites/PNG/Tanks/tracksSmall.png" id="5_erapt"]
+[ext_resource type="Texture2D" uid="uid://c4t6qlit2fueo" path="res://sprites/PNG/Tanks/tankBlue_outline.png" id="9_5f5ho"]
+[ext_resource type="Texture2D" uid="uid://whscjt158nap" path="res://sprites/PNG/Tanks/barrelBlue_outline.png" id="10_ptive"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -14,6 +20,13 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wxjha")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1156.0
+offset_bottom = 650.0
+texture = ExtResource("2_47cde")
+stretch_mode = 1
+
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -22,32 +35,61 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CenterContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/HBoxContainer/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("5_30hwu")
+
+[node name="TextureRect3" type="TextureRect" parent="CenterContainer/HBoxContainer/MarginContainer/VBoxContainer2/TextureRect"]
+layout_mode = 2
+offset_left = 28.5
+offset_top = -17.0
+offset_right = 52.5
+offset_bottom = 41.0
+texture = ExtResource("4_yl6r8")
+
+[node name="TextureRect2" type="TextureRect" parent="CenterContainer/HBoxContainer/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("5_erapt")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 alignment = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_fonts/normal_font = ExtResource("3_h2v8x")
+theme_override_font_sizes/normal_font_size = 35
 bbcode_enabled = true
 text = "[center]Tanki Tank[/center]"
 fit_content = true
 autowrap_mode = 0
 
-[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="StartButton" type="TextureButton" parent="CenterContainer/VBoxContainer/CenterContainer"]
+[node name="StartButton" type="TextureButton" parent="CenterContainer/HBoxContainer/VBoxContainer/CenterContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource("1_yjflu")
 texture_pressed = ExtResource("2_wpix0")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/VBoxContainer/CenterContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/HBoxContainer/VBoxContainer/CenterContainer"]
 layout_mode = 2
 mouse_filter = 2
 mouse_force_pass_scroll_events = false
@@ -58,17 +100,17 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+[node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="QuitButton" type="TextureButton" parent="CenterContainer/VBoxContainer/CenterContainer2"]
+[node name="QuitButton" type="TextureButton" parent="CenterContainer/HBoxContainer/VBoxContainer/CenterContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource("1_yjflu")
 texture_pressed = ExtResource("2_wpix0")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/VBoxContainer/CenterContainer2"]
+[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/HBoxContainer/VBoxContainer/CenterContainer2"]
 layout_mode = 2
 mouse_filter = 2
 mouse_force_pass_scroll_events = false
@@ -79,5 +121,29 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer2/QuitButton" to="." method="_on_quit_button_pressed"]
+[node name="MarginContainer2" type="MarginContainer" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CenterContainer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/HBoxContainer/MarginContainer2/VBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("9_5f5ho")
+
+[node name="TextureRect3" type="TextureRect" parent="CenterContainer/HBoxContainer/MarginContainer2/VBoxContainer2/TextureRect"]
+layout_mode = 2
+offset_left = 28.5
+offset_top = -17.0
+offset_right = 52.5
+offset_bottom = 41.0
+texture = ExtResource("10_ptive")
+
+[node name="TextureRect2" type="TextureRect" parent="CenterContainer/HBoxContainer/MarginContainer2/VBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("5_erapt")
+
+[connection signal="pressed" from="CenterContainer/HBoxContainer/VBoxContainer/CenterContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/VBoxContainer/CenterContainer2/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -16,6 +16,13 @@ extends CharacterBody2D
 var rotation_direction = 0
 var is_loaded = true
 
+func _ready() -> void:
+	if !is_player_two:
+		$Tank.texture = GameManager.player_one_texture
+	elif is_player_two:
+		$Tank.texture = GameManager.player_two_texture
+		$Barrel.texture = load("res://sprites/PNG/Tanks/barrelBlue_outline.png")
+
 
 func get_input():
 	rotation_direction = Input.get_axis(turn_left, turn_right)
