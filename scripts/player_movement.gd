@@ -39,6 +39,7 @@ func fire():
 	if is_loaded and Input.is_action_just_pressed(fire_tank):
 		is_loaded = false
 		var projectile = PROJECTILE.instantiate()
+		projectile.is_player_two = is_player_two
 		projectile.rotation = rotation
 		get_node("/root/Game/").add_child(projectile)
 		projectile.global_position = $Projectile_Marker.global_position

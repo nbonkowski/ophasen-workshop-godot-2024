@@ -1,9 +1,12 @@
 extends Area2D
 
 @export var projectile_speed = 800
+@export var is_player_two = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if is_player_two:
+		$Sprite2D.play("default_player_two")
 	#velocity = -transform.y * projectile_speed 
 	$Timer.stop
 
