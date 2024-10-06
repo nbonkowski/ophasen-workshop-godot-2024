@@ -21,7 +21,7 @@ func _ready() -> void:
 		$Tank.texture = GameManager.player_one_texture
 	elif is_player_two:
 		$Tank.texture = GameManager.player_two_texture
-		$Barrel.texture = load("res://sprites/PNG/Tanks/barrelBlue_outline.png")
+		$Barrel.texture = GameManager.player_two_barrel
 
 
 func get_input():
@@ -51,7 +51,6 @@ func fire():
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("TankProjectile"):
 		GameManager.decreas_health(1,is_player_two)
-
 
 func _on_fire_delay_reaload() -> void:
 	is_loaded = true

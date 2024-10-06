@@ -1,13 +1,17 @@
 extends Node2D
 
 @onready var menu = preload("res://scenes/main_menu.tscn")
+@onready var end = preload("res://scenes/end_screen.tscn")
+@onready var game = preload("res://scenes/game.tscn")
 
 @onready var player_one_texture = load("res://sprites/PNG/Tanks/tankGreen.png")
 @onready var player_two_texture = load("res://sprites/PNG/Tanks/tankBlue.png")
+@onready var player_two_barrel = load("res://sprites/PNG/Tanks/barrelBlue_outline.png")
 
 @export var max_player_health = 3
 var player_one_health
 var player_two_health
+var player_two_won = false
 
 signal update_health(health, player)
 
@@ -21,9 +25,17 @@ func decreas_health(damage: int, player: bool):
 	elif player == true:
 		player_two_health -= damage
 	if player_one_health <= 0 or player_two_health <= 0:	
-		get_tree().change_scene_to_packed(menu)
+		player_two_won = player_two_health > 0
+		get_tree().change_scene_to_packed(end)
 	update_health.emit(player_two_health if player else player_one_health, player)
 		
 func reset():
 	player_one_health = max_player_health
 	player_two_health = max_player_health
+	
+func start_game():
+	reset()
+	get_tree().change_scene_to_packed(game)
+
+func quit():
+	get_tree().quit()
