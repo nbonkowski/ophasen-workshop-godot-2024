@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://cvxvuug2t5wvv"]
+
+[ext_resource type="Script" path="res://scripts/player_stats.gd" id="1_gs18d"]
+[ext_resource type="Texture2D" uid="uid://bisd67ojokl4o" path="res://sprites/PNG/Tanks/tankGreen_outline.png" id="1_s06so"]
+[ext_resource type="PackedScene" uid="uid://da4ftvytaob3s" path="res://scenes/prefabs/life_bar.tscn" id="2_g73i5"]
+[ext_resource type="Texture2D" uid="uid://b7hh3na2qradi" path="res://sprites/PNG/Buttons/button_rectangle.png" id="2_p458i"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rasee"]
+texture = ExtResource("2_p458i")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
+
+[sub_resource type="Theme" id="Theme_ou3xn"]
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_rasee")
+
+[node name="PlayerStats" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_gs18d")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -94.0
+offset_right = 302.0
+grow_vertical = 0
+theme = SubResource("Theme_ou3xn")
+
+[node name="HSplitContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/HSplitContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/HSplitContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_s06so")
+expand_mode = 3
+
+[node name="LifeBar" parent="PanelContainer/HSplitContainer" instance=ExtResource("2_g73i5")]
+layout_mode = 2

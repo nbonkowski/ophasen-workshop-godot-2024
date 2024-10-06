@@ -42,7 +42,7 @@ func fire():
 #is called when hit by a projectile
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("TankProjectile"):
-		HealthManager.decreas_health(1,is_player_two)
+		GameManager.decreas_health(1,is_player_two)
 
 
 func _on_fire_delay_reaload() -> void:

@@ -1,19 +1,18 @@
 extends Control
 
 @onready var heart_prefab = preload("res://scenes/prefabs/heart.tscn")
-#player one = 0 player two = 1
-@export var player :bool = 0 
+@onready var max_health = GameManager.max_player_health
 
-@onready var max_health = HealthManager.max_player_health
 var hearts = []
-
+#player one = 0 player two = 1
+var player :bool = 0 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	HealthManager.connect("update_health", update_health)
+	GameManager.connect("update_health", update_health)
 	for i in range(max_health):
 		hearts.append(heart_prefab.instantiate())
-		$HBoxContainer.add_child(hearts[i])
+		add_child(hearts[i])
 
 
 func update_health(health: int, player: bool):

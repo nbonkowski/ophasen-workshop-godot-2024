@@ -2,6 +2,9 @@ extends Node2D
 
 @onready var menu = preload("res://scenes/main_menu.tscn")
 
+@onready var player_one_texture = load("res://sprites/PNG/Tanks/tankGreen.png")
+@onready var player_two_texture = load("res://sprites/PNG/Tanks/tankBlue.png")
+
 @export var max_player_health = 3
 var player_one_health
 var player_two_health
