@@ -27,8 +27,10 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -94.0
-offset_right = 302.0
+offset_left = -4.0
+offset_top = -90.0
+offset_right = 298.0
+offset_bottom = 4.0
 grow_vertical = 0
 theme = SubResource("Theme_ou3xn")
 

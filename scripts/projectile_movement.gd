@@ -28,4 +28,5 @@ func _on_body_entered(area: Area2D) -> void:
 	explode()
 
 func _on_area_entered(area: Area2D) -> void:
-	explode()
+	if !area.is_in_group("TankProjectile"):
+		explode()
