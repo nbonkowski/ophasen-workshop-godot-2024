@@ -4,8 +4,8 @@ extends Node2D
 @onready var end = preload("res://scenes/end_screen.tscn")
 @onready var game = preload("res://scenes/game.tscn")
 
-@onready var player_one_texture = load("res://sprites/PNG/Tanks/tankGreen.png")
-@onready var player_two_texture = load("res://sprites/PNG/Tanks/tankBlue.png")
+@onready var player_one_texture = load("res://sprites/PNG/Tanks/tankGreen_outline.png")
+@onready var player_two_texture = load("res://sprites/PNG/Tanks/tankBlue_outline.png")
 @onready var player_two_barrel = load("res://sprites/PNG/Tanks/barrelBlue_outline.png")
 
 @export var max_player_health = 3
