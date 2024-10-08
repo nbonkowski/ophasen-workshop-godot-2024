@@ -1,6 +1,5 @@
-[gd_scene load_steps=28 format=4 uid="uid://dyeexi6unj8rj"]
+[gd_scene load_steps=25 format=4 uid="uid://dyeexi6unj8rj"]
 
-[ext_resource type="PackedScene" uid="uid://dp5xlyyl816fv" path="res://scenes/prefabs/player.tscn" id="1_5h4wv"]
 [ext_resource type="Texture2D" uid="uid://d4e2172dm18p1" path="res://sprites/PNG/Obstacles/barrelGreen_side.png" id="4_2x240"]
 [ext_resource type="TileSet" uid="uid://dm8uw7g13jsw6" path="res://sprites/Atlas/game.tres" id="4_3h834"]
 [ext_resource type="Texture2D" uid="uid://bumcy0i3nc64w" path="res://sprites/PNG/Obstacles/barrelGreen_side_damaged.png" id="5_6j20c"]
@@ -13,8 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://cpbv050fyjygd" path="res://sprites/PNG/Obstacles/barrelRed_up.png" id="12_8rog3"]
 [ext_resource type="Texture2D" uid="uid://b4kbcgtmutbdo" path="res://sprites/PNG/Obstacles/oil.png" id="13_w71xw"]
 [ext_resource type="Texture2D" uid="uid://bqr4qs28ktusc" path="res://sprites/PNG/Obstacles/sandbagBeige.png" id="14_v5p0k"]
-[ext_resource type="PackedScene" uid="uid://cvxvuug2t5wvv" path="res://scenes/prefabs/player_stats.tscn" id="16_ig4nw"]
-[ext_resource type="PackedScene" uid="uid://pn81chil6skt" path="res://scenes/prefabs/barrier.tscn" id="17_45h4g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4t3fj"]
 texture = ExtResource("4_2x240")
@@ -149,14 +146,7 @@ sources/9 = SubResource("TileSetAtlasSource_d0k14")
 sources/10 = SubResource("TileSetAtlasSource_00bic")
 
 [node name="Game" type="Node2D"]
-scale = Vector2(1.15, 1.15)
-
-[node name="Player2" parent="." instance=ExtResource("1_5h4wv")]
-position = Vector2(720, 6)
-is_player_two = true
-
-[node name="Player" parent="." instance=ExtResource("1_5h4wv")]
-position = Vector2(-625, 0)
+scale = Vector2(1.1, 1.1)
 
 [node name="LayerHolder" type="Node2D" parent="."]
 
@@ -180,25 +170,3 @@ tile_set = ExtResource("4_3h834")
 zoom = Vector2(0.5, 0.5)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="PlayerOneStats" parent="CanvasLayer" instance=ExtResource("16_ig4nw")]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-grow_vertical = 0
-size_flags_horizontal = 0
-
-[node name="PlayerTwoStats" parent="CanvasLayer" instance=ExtResource("16_ig4nw")]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 0
-grow_vertical = 0
-scale = Vector2(-1, 1)
-size_flags_vertical = 8
-is_player_two = true
-
-[node name="Barrier" parent="." instance=ExtResource("17_45h4g")]
-position = Vector2(-115, -31.6667)
