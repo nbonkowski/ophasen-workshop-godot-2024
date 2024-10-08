@@ -9,8 +9,3 @@ func _ready() -> void:
 	elif is_player_two:
 		$PanelContainer/HSplitContainer/MarginContainer/TextureRect.texture = GameManager.player_two_texture
 	$PanelContainer/HSplitContainer/LifeBar.player = is_player_two
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

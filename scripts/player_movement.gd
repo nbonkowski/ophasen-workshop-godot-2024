@@ -23,30 +23,30 @@ func _ready() -> void:
 		$Tank.texture = GameManager.player_two_texture
 		$Barrel.texture = GameManager.player_two_barrel
 
-
-func get_input():
-	rotation_direction = Input.get_axis(turn_left, turn_right)
-	velocity = transform.y * Input.get_axis(drive_up, drive_down) * speed
-
 func _physics_process(delta):
 	get_input()
 	fire()
 	rotation += rotation_direction * rotation_speed * delta
 	move_and_slide()
-	
+
+func get_input():
+	rotation_direction = Input.get_axis(turn_left, turn_right)
+	velocity = transform.y * Input.get_axis(drive_up, drive_down) * speed
 	
 func fire():
 	if is_loaded and Input.is_action_just_pressed(fire_tank):
 		is_loaded = false
-		var projectile = PROJECTILE.instantiate()
-		projectile.is_player_two = is_player_two
-		projectile.rotation = rotation
-		get_node("/root/Game/").add_child(projectile)
-		projectile.global_position = $Projectile_Marker.global_position
-		rotation_direction = 0
-		#velocity += transform.y * 500
+		instantiateProjectile()
 		$FireDelay.start()
 
+func instantiateProjectile():
+	var projectile = PROJECTILE.instantiate()
+	projectile.is_player_two = is_player_two
+	projectile.rotation = rotation
+	get_node("/root/Game/").add_child(projectile)
+	projectile.global_position = $Projectile_Marker.global_position
+	rotation_direction = 0
+	
 #is called when hit by a projectile
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("TankProjectile"):

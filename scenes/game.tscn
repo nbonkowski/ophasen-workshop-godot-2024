@@ -1,8 +1,6 @@
-[gd_scene load_steps=30 format=4 uid="uid://dyeexi6unj8rj"]
+[gd_scene load_steps=28 format=4 uid="uid://dyeexi6unj8rj"]
 
 [ext_resource type="PackedScene" uid="uid://dp5xlyyl816fv" path="res://scenes/prefabs/player.tscn" id="1_5h4wv"]
-[ext_resource type="Script" path="res://scripts/main_game.gd" id="1_n6v1p"]
-[ext_resource type="PackedScene" uid="uid://cfl4rr56qcoo0" path="res://scenes/prefabs/basic_enemy.tscn" id="3_l5476"]
 [ext_resource type="Texture2D" uid="uid://d4e2172dm18p1" path="res://sprites/PNG/Obstacles/barrelGreen_side.png" id="4_2x240"]
 [ext_resource type="TileSet" uid="uid://dm8uw7g13jsw6" path="res://sprites/Atlas/game.tres" id="4_3h834"]
 [ext_resource type="Texture2D" uid="uid://bumcy0i3nc64w" path="res://sprites/PNG/Obstacles/barrelGreen_side_damaged.png" id="5_6j20c"]
@@ -78,11 +76,6 @@ texture = ExtResource("10_msbs8")
 texture = ExtResource("11_ijwbq")
 texture_region_size = Vector2i(44, 62)
 0:0/0 = 0
-1:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bttam"]
 texture = ExtResource("12_8rog3")
@@ -156,8 +149,7 @@ sources/9 = SubResource("TileSetAtlasSource_d0k14")
 sources/10 = SubResource("TileSetAtlasSource_00bic")
 
 [node name="Game" type="Node2D"]
-scale = Vector2(1.2, 1.2)
-script = ExtResource("1_n6v1p")
+scale = Vector2(1.15, 1.15)
 
 [node name="Player2" parent="." instance=ExtResource("1_5h4wv")]
 position = Vector2(720, 6)
@@ -165,9 +157,6 @@ is_player_two = true
 
 [node name="Player" parent="." instance=ExtResource("1_5h4wv")]
 position = Vector2(-625, 0)
-
-[node name="BasicEnemy" parent="." instance=ExtResource("3_l5476")]
-position = Vector2(700, 456)
 
 [node name="LayerHolder" type="Node2D" parent="."]
 
