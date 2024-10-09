@@ -26,12 +26,15 @@ func decreas_health(damage: int, player: bool):
 		player_two_health -= damage
 	if player_one_health <= 0 or player_two_health <= 0:	
 		player_two_won = player_two_health > 0
-		get_tree().change_scene_to_packed(end)
+		call_deferred("end_game")
 	update_health.emit(player_two_health if player else player_one_health, player)
 		
 func reset():
 	player_one_health = max_player_health
 	player_two_health = max_player_health
+	
+func end_game():
+	get_tree().change_scene_to_packed(end)
 	
 func start_game():
 	reset()
