@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=28 format=4 uid="uid://dyeexi6unj8rj"]
+=======
+[gd_scene load_steps=27 format=4 uid="uid://dyeexi6unj8rj"]
+>>>>>>> Stashed changes
 
 [ext_resource type="PackedScene" uid="uid://dp5xlyyl816fv" path="res://scenes/prefabs/player.tscn" id="1_5h4wv"]
 [ext_resource type="Texture2D" uid="uid://d4e2172dm18p1" path="res://sprites/PNG/Obstacles/barrelGreen_side.png" id="4_2x240"]
@@ -11,6 +15,12 @@
 [ext_resource type="Texture2D" uid="uid://bdtppu5bvx40w" path="res://sprites/PNG/Obstacles/barrelGrey_up.png" id="10_msbs8"]
 [ext_resource type="Texture2D" uid="uid://bxshfeken87dv" path="res://sprites/PNG/Obstacles/barrelRed_side.png" id="11_ijwbq"]
 [ext_resource type="Texture2D" uid="uid://cpbv050fyjygd" path="res://sprites/PNG/Obstacles/barrelRed_up.png" id="12_8rog3"]
+<<<<<<< Updated upstream
+=======
+[ext_resource type="TileSet" uid="uid://dqt3xsu5h1egp" path="res://sprites/Atlas/groundtiles.res" id="12_m8deu"]
+[ext_resource type="PackedScene" uid="uid://cvxvuug2t5wvv" path="res://scenes/prefabs/player_stats.tscn" id="13_nvutd"]
+[ext_resource type="PackedScene" uid="uid://dp5xlyyl816fv" path="res://scenes/prefabs/player.tscn" id="13_uwcar"]
+>>>>>>> Stashed changes
 [ext_resource type="Texture2D" uid="uid://b4kbcgtmutbdo" path="res://sprites/PNG/Obstacles/oil.png" id="13_w71xw"]
 [ext_resource type="Texture2D" uid="uid://bqr4qs28ktusc" path="res://sprites/PNG/Obstacles/sandbagBeige.png" id="14_v5p0k"]
 [ext_resource type="PackedScene" uid="uid://cvxvuug2t5wvv" path="res://scenes/prefabs/player_stats.tscn" id="16_ig4nw"]
@@ -181,12 +191,33 @@ zoom = Vector2(0.5, 0.5)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+<<<<<<< Updated upstream
 [node name="PlayerOneStats" parent="CanvasLayer" instance=ExtResource("16_ig4nw")]
+=======
+[node name="PlayerStats" parent="CanvasLayer" instance=ExtResource("13_nvutd")]
+>>>>>>> Stashed changes
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 grow_vertical = 0
+<<<<<<< Updated upstream
 size_flags_horizontal = 0
+=======
+
+[node name="PlayerStats2" parent="CanvasLayer" instance=ExtResource("13_nvutd")]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(-1, 1)
+is_player_two = true
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("13_uwcar")]
+position = Vector2(-580, 3.63636)
+>>>>>>> Stashed changes
 
 [node name="PlayerTwoStats" parent="CanvasLayer" instance=ExtResource("16_ig4nw")]
 anchors_preset = 3
