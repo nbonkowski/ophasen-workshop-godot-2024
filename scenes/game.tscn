@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://dyeexi6unj8rj"]
+[gd_scene load_steps=26 format=4 uid="uid://dyeexi6unj8rj"]
 
 [ext_resource type="Texture2D" uid="uid://d4e2172dm18p1" path="res://sprites/PNG/Obstacles/barrelGreen_side.png" id="4_2x240"]
 [ext_resource type="Texture2D" uid="uid://bumcy0i3nc64w" path="res://sprites/PNG/Obstacles/barrelGreen_side_damaged.png" id="5_6j20c"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bxshfeken87dv" path="res://sprites/PNG/Obstacles/barrelRed_side.png" id="11_ijwbq"]
 [ext_resource type="Texture2D" uid="uid://cpbv050fyjygd" path="res://sprites/PNG/Obstacles/barrelRed_up.png" id="12_8rog3"]
 [ext_resource type="TileSet" uid="uid://dqt3xsu5h1egp" path="res://sprites/Atlas/groundtiles.res" id="12_m8deu"]
+[ext_resource type="PackedScene" uid="uid://dp5xlyyl816fv" path="res://scenes/prefabs/player.tscn" id="13_uwcar"]
 [ext_resource type="Texture2D" uid="uid://b4kbcgtmutbdo" path="res://sprites/PNG/Obstacles/oil.png" id="13_w71xw"]
 [ext_resource type="Texture2D" uid="uid://bqr4qs28ktusc" path="res://sprites/PNG/Obstacles/sandbagBeige.png" id="14_v5p0k"]
 
@@ -170,3 +171,10 @@ tile_set = ExtResource("12_m8deu")
 zoom = Vector2(0.5, 0.5)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("13_uwcar")]
+position = Vector2(-580, 3.63636)
+
+[node name="CharacterBody2D2" parent="." instance=ExtResource("13_uwcar")]
+position = Vector2(569.091, 9.09091)
+is_player_two = true
